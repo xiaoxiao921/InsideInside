@@ -1,0 +1,99 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net35</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<RootNamespace>InsideInside</RootNamespace>
+		<LangVersion>default</LangVersion>
+		<IsPackable>false</IsPackable>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<AssemblyName>InsideInside</AssemblyName>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>disable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp">
+		  <HintPath>..\..\..\Desktop\InsideAssemblyDump\Ass62.dll</HintPath>
+		</Reference>
+		<Reference Include="Assembly-CSharp-firstpass">
+		  <HintPath>..\..\..\Desktop\InsideAssemblyDump\Ass61.dll</HintPath>
+		</Reference>
+		<Reference Include="ConditionalExpression">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\ConditionalExpression.dll</HintPath>
+		</Reference>
+		<Reference Include="dnlib">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\dnlib.dll</HintPath>
+		</Reference>
+		<Reference Include="GalaxyCSharp">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\GalaxyCSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="Log">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\Log.dll</HintPath>
+		</Reference>
+		<Reference Include="log4net-loggly">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\log4net-loggly.dll</HintPath>
+		</Reference>
+		<Reference Include="log4net">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\log4net.dll</HintPath>
+		</Reference>
+		<Reference Include="Mono.Data.Sqlite">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\Mono.Data.Sqlite.dll</HintPath>
+		</Reference>
+		<Reference Include="Mono.Data.Tds">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\Mono.Data.Tds.dll</HintPath>
+		</Reference>
+		<Reference Include="Mono.Posix">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\Mono.Posix.dll</HintPath>
+		</Reference>
+		<Reference Include="Mono.Web">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\Mono.Web.dll</HintPath>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\Newtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="PlayMaker">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\PlayMaker.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.Cloud.Analytics">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\UnityEngine.Cloud.Analytics.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.Cloud.Analytics.Util">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\UnityEngine.Cloud.Analytics.Util.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CrashLog">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\UnityEngine.CrashLog.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\UnityEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\UnityEngine.UI.dll</HintPath>
+		</Reference>
+		<Reference Include="MelonLoader">
+			<HintPath>H:\INSIDE - MelonLoader\MelonLoader\net35\MelonLoader.dll</HintPath>
+		</Reference>
+		<Reference Include="0Harmony">
+			<HintPath>H:\INSIDE - MelonLoader\MelonLoader\net35\0Harmony.dll</HintPath>
+		</Reference>
+		<Reference Include="ValueTupleBridge">
+			<HintPath>H:\INSIDE - MelonLoader\MelonLoader\net35\ValueTupleBridge.dll</HintPath>
+		</Reference>
+
+	</ItemGroup>
+
+	<PropertyGroup>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="Core.cs" />
+	</ItemGroup>
+	
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;H:\INSIDE - MelonLoader\Mods&quot;" />
+	</Target>
+</Project>
