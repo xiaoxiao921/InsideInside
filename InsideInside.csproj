@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net35</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -12,15 +12,23 @@
 		<AssemblyName>InsideInside</AssemblyName>
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>disable</ImplicitUsings>
+		<Configurations>Debug;Release;FirstTimeSetup</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(Configuration)' == 'Debug' Or '$(Configuration)' == 'Release'">
+		<Reference Include="Assembly-CSharp">
+			<HintPath>..\..\..\Desktop\InsideAssemblyDump\Ass62.dll</HintPath>
+		</Reference>
+		<Reference Include="Assembly-CSharp-firstpass">
+			<HintPath>..\..\..\Desktop\InsideAssemblyDump\Ass61.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'FirstTimeSetup'">
+		<DefineConstants>FirstTimeSetup</DefineConstants>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Reference Include="Assembly-CSharp">
-		  <HintPath>..\..\..\Desktop\InsideAssemblyDump\Ass62.dll</HintPath>
-		</Reference>
-		<Reference Include="Assembly-CSharp-firstpass">
-		  <HintPath>..\..\..\Desktop\InsideAssemblyDump\Ass61.dll</HintPath>
-		</Reference>
 		<Reference Include="ConditionalExpression">
 			<HintPath>H:\INSIDE - MelonLoader\INSIDE_Data\Managed\ConditionalExpression.dll</HintPath>
 		</Reference>
@@ -91,8 +99,9 @@
 
 	<ItemGroup>
 		<Compile Include="Core.cs" />
+		<Compile Include="MemoryScanner.cs" />
 	</ItemGroup>
-	
+
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="COPY &quot;$(TargetPath)&quot; &quot;H:\INSIDE - MelonLoader\Mods&quot;" />
 	</Target>
